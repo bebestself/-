@@ -70,7 +70,25 @@ for i in range(1,651):
     print('插入失败，回滚'，e)
 db.close()
 ```
+安装faker库：pip install faker
+```
+import pymysql
+from fakerimport Faker
+import random
 
+db = pymysql.connect(host="localhost",user="root",password="123456",database="mms")
+cursor = db.cursor()
+
+sql = "delete from agency"
+cursor.execute(sql)
+db.commit()
+
+faker = Faker(locale = "zh_CN")
+
+for i in range(1,6501):
+  ano_prefix = "p" + str(i)
+  aname = faker.name()
+  asex = random.choice(['男','女'])
 
 
 
