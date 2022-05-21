@@ -50,25 +50,25 @@ TPS = 1亿\*80%/（24\*3600）\*20%
 
 ## 测试数据预埋
 通过python操作数据库的方式进行构造。
+```python
+import pymysql
 
-  import pymysql
+db = pymysql.connect(host='localhost',user='root',password='123456',database='mms')
+cursor = db.cursor()
 
-  db = pymysql.connect(host='localhost',user='root',password='123456',database='mms')
-  cursor = db.cursor()
+privilege = "信息查询功能，信息录入功能，信息浏览功能，数据报表功能"
 
-  privilege = "信息查询功能，信息录入功能，信息浏览功能，数据报表功能"
-
-  for i in range(1,651):
-    sql = "insert into user (uUsername,uPassword,uAccess)values(%s,%s,%s)"
-    try:
-      cursor.execute(sql,['python'+str(i),'123456',privilege])
-      db.commit()
-      print('插入成功')
-    except Exception as e:
-      db.rollback()
-      print('插入失败，回滚'，e)
-  db.close()
-
+for i in range(1,651):
+  sql = "insert into user (uUsername,uPassword,uAccess)values(%s,%s,%s)"
+  try:
+    cursor.execute(sql,['python'+str(i),'123456',privilege])
+    db.commit()
+    print('插入成功')
+  except Exception as e:
+    db.rollback()
+    print('插入失败，回滚'，e)
+db.close()
+```
 
 
 
