@@ -73,7 +73,7 @@ db.close()
 安装faker库：pip install faker
 ```python
 import pymysql
-from fakerimport Faker
+from faker import Faker
 import random
 
 db = pymysql.connect(host="localhost",user="root",password="123456",database="mms")
