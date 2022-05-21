@@ -71,7 +71,7 @@ for i in range(1,651):
 db.close()
 ```
 安装faker库：pip install faker
-```
+```python
 import pymysql
 from fakerimport Faker
 import random
